@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">MyLostAndFoundApplication</string>
+    <string name="map_content_description">Map View</string>
+
 </resources>

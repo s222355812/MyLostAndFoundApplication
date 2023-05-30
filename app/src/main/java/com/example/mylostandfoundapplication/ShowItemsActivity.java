@@ -1,5 +1,6 @@
 package com.example.mylostandfoundapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,11 +13,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ShowItemsActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private LostFoundItemAdapter adapter;
+
+    private Button btnShowOnMap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +34,20 @@ public class ShowItemsActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
 
+        btnShowOnMap = findViewById(R.id.btnShowOnMap);
+        btnShowOnMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showItemsOnMap();
+            }
+        });
     }
+
+    private void showItemsOnMap() {
+        Intent intent = new Intent(ShowItemsActivity.this, MapActivity.class);
+        intent.putExtra("items", new ArrayList<>(adapter.getItemList()));
+    }
+
 
     private class LostFoundItemAdapter extends RecyclerView.Adapter<LostFoundItemAdapter.ViewHolder> {
         private List<LostFoundItem> itemList;
@@ -64,6 +81,11 @@ public class ShowItemsActivity extends AppCompatActivity {
         @Override
         public int getItemCount() {
             return itemList.size();
+        }
+
+
+        public List<LostFoundItem> getItemList() {
+            return itemList;
         }
 
         public class ViewHolder extends RecyclerView.ViewHolder {

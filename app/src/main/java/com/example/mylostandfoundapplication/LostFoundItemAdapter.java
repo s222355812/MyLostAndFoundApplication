@@ -15,7 +15,7 @@ public class LostFoundItemAdapter extends RecyclerView.Adapter<LostFoundItemAdap
     private List<LostFoundItem> itemList;
     private Context context;
 
-//    public LostFoundItemAdapter() {
+    //    public LostFoundItemAdapter() {
 //        itemList = getAllLostFoundItemsFromDatabase(); // Retrieve the list of items from the database
 //    }
     public LostFoundItemAdapter(Context context, List<LostFoundItem> itemList) {

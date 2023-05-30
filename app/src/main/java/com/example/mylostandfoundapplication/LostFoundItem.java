@@ -7,14 +7,18 @@ public class LostFoundItem {
     private String description;
     private String date;
     private String location;
+    private double latitude; // Add latitude field
+    private double longitude; // Add longitude field
 
-    public LostFoundItem(int id, String name, String phone, String description, String date, String location) {
+    public LostFoundItem(int id, String name, String phone, String description, String date, String location, double latitude, double longitude) {
         this.id = id;
         this.name = name;
         this.phone = phone;
         this.description = description;
         this.date = date;
         this.location = location;
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 
     public int getId() {
@@ -39,5 +43,13 @@ public class LostFoundItem {
 
     public String getLocation() {
         return location;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
     }
 }
